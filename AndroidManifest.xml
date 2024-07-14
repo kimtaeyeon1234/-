@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- 앱 상세정보 -->
+    <application
+        android:name=".Myapplication"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.GPSTrackingDemo"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
+
+        <!-- 구글 맵 API 할당 -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value= "AIzaSyDcTHr_LB57_XXY66EEE22WSOL-QRFSTwA" />
+
+        <!-- 지도 기능 추가 -->
+        <activity
+            android:name=".map.MapFragment"
+            android:exported="false"
+            android:label="@string/title_activity_maps" />
+
+
+        <!-- 메인 기능 추가 -->
+        <activity
+            android:name=".main.MainActivity"
+            android:exported="true"/>
+
+
+        <!-- 회원가입 로그인 -->
+        <activity android:name=".User.EmailSignUpActivity"
+            android:exported="true">
+        </activity>
+        <activity android:name=".User.EmailLoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--사용자 정보 -->
+        <activity
+            android:name=".User.UserFragment"
+            android:exported="true" />
+
+        <!-- 커뮤티니티 기능 -->
+        <activity android:name=".Community.CommunityFragment"
+            android:exported="true"/>
+        <activity
+            android:name=".Community.postWritingActivity"
+            android:exported="true"/>
+        <activity android:name=".Community.DetailPostActivity"
+                  android:exported="true"/>
+        <activity
+            android:name=".Community.ImgFullScreenActivity"
+            android:exported="true" />
+
+        <!-- 행사 기능 -->
+        <activity
+            android:name=".map.Fragment3"
+            android:exported="true"
+            />
+        <activity
+            android:name=".Festival.FestivalActivity"
+            android:exported="true"
+            />
+        <activity
+            android:name=".Festival.FestivalList"
+            android:exported="true"
+            />
+
+        <activity
+            android:name=".itemDetail.AreaTripDetailActivity"
+            android:exported="true"
+            />
+        <activity
+            android:name=".itemDetail.MapFullscreenActivity"
+            android:exported="true"
+            />
+        <activity
+            android:name=".itemList.ListOfAreaTripActivity"
+            android:exported="true"
+            />
+
+        <!-- 설정 기능 추가 -->
+        <activity
+            android:name=".settings.SettingsActivity"
+            android:exported="true"
+            android:label="@string/title_activity_settings">
+        </activity>
+
+    </application>
+
+</manifest>
